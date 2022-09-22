@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import {BrowserRouter as Router , Routes , Route} from 'react-router-dom'
+import Create from './components/UseState/Create'
+import EditUser from './components/UseState/EditUser'
+import Navbar from './components/Navbar'
+import TableUsers from './components/UseState/TableUsers'
+import User from './components/UseState/User'
+import UserInfo from './components/UseState/UserInfo'
+import Product from './components/UseReducer/Product'
+// import CreateProduct from './components/UseReducer/CreateProduct'
+// npx json-server --watch data/db.json --port 8000
+// npx json-server --watch data/db2.json --port 7000
 
-function App() {
+
+
+const App = () => {
+ 
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+   <div>
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path='/' element={<User />}/>
+        <Route path='/tableUsers' element={<TableUsers />} />
+        <Route path='/:id' element={<UserInfo />} />
+        <Route path='/create' element={<Create />} />
+        <Route path='/edit/:id' element={<EditUser />} />
+        <Route path='/product' element={<Product />} />
+        {/* <Route path='/createProduct' element={<CreateProduct />} /> */}
+       
+      </Routes>
+    </Router>
+      
+   </div>
+  )
 }
 
-export default App;
+export default App
+
