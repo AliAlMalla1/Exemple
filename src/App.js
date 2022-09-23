@@ -7,7 +7,8 @@ import TableUsers from './components/UseState/TableUsers'
 import User from './components/UseState/User'
 import UserInfo from './components/UseState/UserInfo'
 import Product from './components/UseReducer/Product'
-// import CreateProduct from './components/UseReducer/CreateProduct'
+import EditProduct from './components/UseReducer/EditProduct'
+
 // npx json-server --watch data/db.json --port 8000
 // npx json-server --watch data/db2.json --port 7000
 
@@ -27,7 +28,8 @@ const App = () => {
         <Route path='/create' element={<Create />} />
         <Route path='/edit/:id' element={<EditUser />} />
         <Route path='/product' element={<Product />} />
-        {/* <Route path='/createProduct' element={<CreateProduct />} /> */}
+        <Route path='/editProduct/:id' element={<EditProduct />} />
+      
        
       </Routes>
     </Router>

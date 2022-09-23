@@ -8,9 +8,9 @@
     },
     {
       "id": 2,
-      "title": "mouse toshipa",
-      "price": "7$",
-      "url": "https://rs.dynabook.com/CMS/RS/ProductPictures/R300__White_EU_250.jpg"
+      "title": "headset",
+      "price": "90$",
+      "url": "https://media.wired.com/photos/5f2b2e792f0075bf6e0a1de6/191:100/w_2580,c_limit/Gear-Sony-WH-1000XM4-1-SOURCE-Sony.jpg"
     },
     {
       "id": 3,
@@ -27,7 +27,7 @@
     {
       "id": 5,
       "title": "kyboard lenovo",
-      "price": "90$",
+      "price": "900",
       "url": "https://5.imimg.com/data5/DH/UN/MY-59394742/lenovo-key-board-500x500.jpg"
     }
   ]

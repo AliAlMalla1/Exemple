@@ -1,18 +1,21 @@
 import axios from 'axios';
 import React, {  useState } from 'react'
+import { useNavigate, useParams } from 'react-router-dom';
 import { useProductsContext } from '../../hooks/useProductsContext';
 
+
+
+const EditProduct = () => {
+  const {dispatch} = useProductsContext()
   
-
-const CreateProduct = () => {
-
- const {dispatch} = useProductsContext()
 
   const [title,setTitle] = useState();
   const [price,setPrice] = useState();
   const [url,setUrl] =  useState();
 
+  const {id} = useParams()
 
+  const navigate = useNavigate()
 
 
 
@@ -21,22 +24,23 @@ const handleSubmit = (e) => {
 
   const product = {title,price,url}
 
-  axios.post('http://localhost:7000/posts' , product )
+  axios.patch(`http://localhost:7000/posts/${id}` , product )
   .then((res) => {
     setTitle('')
     setPrice('')
     setUrl('')
-    console.log('product added')
-    dispatch({type: 'ADD_PRODUCT' , payload: res.data})
- 
+    console.log('product updated')
+    dispatch({type: 'UPDATE_PRODUCT' , payload: res.data})
+    navigate('/product')
   })
 }
 
   return (
     <div className='flex justify-center my-20 '>
+        thi id of product is {id}
    
-    <div className="w-96 absolute right-20 " >
-    <h1 className='text-3xl  mx-7  '> Create Product</h1>
+    <div className="w-full absolute " >
+    <h1 className='text-3xl  mx-7  '> Update Product</h1>
    <form   className="bg-white  rounded px-8 pt-6 pb-8 mb-4 " >
      
     
@@ -79,7 +83,7 @@ const handleSubmit = (e) => {
  
      <div className="flex  justify-center">
        <button onClick={handleSubmit}  className="bg-blue-600   text-white font-bold py-2 px-4 mt-5 rounded border-2 border-blue-600 duration-500 hover:bg-white hover:text-blue-600" type="button">
-        Create
+        Update
        </button>
        
      </div>
@@ -90,4 +94,4 @@ const handleSubmit = (e) => {
   )
 }
 
-export default CreateProduct
+export default EditProduct

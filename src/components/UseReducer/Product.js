@@ -1,16 +1,19 @@
-import React, { useEffect, useReducer } from 'react'
+import React, { useEffect } from 'react'
 import axios from 'axios'
-import Reducer, { INITIAL_STATE } from './hook/Reducer'
 import CreateProduct from './CreateProduct'
+import { Link } from 'react-router-dom'
+import {useProductsContext} from './../../hooks/useProductsContext'
 
 
 const Product = () => {
-  const [products , dispatch] = useReducer(Reducer , INITIAL_STATE)
- 
+  const {products , dispatch} = useProductsContext()
+
   const fetchData = () => {
     axios.get('http://localhost:7000/posts')
     .then(res => {
+      console.log(res.data)
       dispatch({type: 'FETCH_PRODUCT' , payload : res.data})
+      console.log(products)
     })
   }
 
@@ -53,7 +56,7 @@ const Product = () => {
     </thead>
 
   
-        {products.data && products.data.map((product) => (
+        {products && products.map((product) => (
               <tbody key={product.id}>
               <tr  className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
               <td  className="py-4 px-6 ">
@@ -70,7 +73,7 @@ const Product = () => {
               </td>
               <td className="py-4 px-6">
               <button onClick={() =>handleCLick(product.id)} className='bg-blue-600 text-white px-4 py-2 rounded-xl border-2 border-blue-600 duration-500 hover:bg-white hover:text-blue-600'> DELETE</button>
-              <button className='bg-blue-600 text-white px-4 py-2 rounded-xl border-2 mx-4 border-blue-600 duration-500 hover:bg-white hover:text-blue-600'> EDIT</button>
+             <Link to={`/editProduct/${product.id}`} ><button className='bg-blue-600 text-white px-4 py-2 rounded-xl border-2 mx-4 border-blue-600 duration-500 hover:bg-white hover:text-blue-600'> EDIT</button></Link>
               </td>   
           </tr>
           </tbody>
