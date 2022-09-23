@@ -1,4 +1,6 @@
- const ProductReducer = (state , action) => {
+
+
+const ProductReducer = (state , action) => {
     switch(action.type) {
       case "FETCH_PRODUCT": 
       return {
@@ -19,7 +21,8 @@
             }
             return product;
           })
-          return {            
+          return {
+            
             products: updateProducts
           }
       case "DELETE_PRODUCT":
@@ -31,6 +34,5 @@
        return state;    
     }
   };
-
 
   export default ProductReducer
