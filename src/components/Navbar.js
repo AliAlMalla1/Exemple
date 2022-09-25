@@ -11,14 +11,17 @@ const Navbar = () => {
 
             <ul className="flex lg:text-2xl md:text-lg sm:text-base   mx-4">
                 <li className="mr-6">
-              <Link to='/'> <span className="text-blue-500 hover:text-blue-800" href="#">Home</span></Link>
+              <Link to='/'> <span className="text-blue-500 hover:text-blue-800" href="#">All Users</span></Link>
                 </li>
                 <li className="mr-6">
                    <Link to='/tableUsers'> <span className="text-blue-500 hover:text-blue-800" href="#">Table Users</span></Link>
                 </li>
                 <li className="mr-6">
-                   <Link to='/create'> <span className="text-blue-500 hover:text-blue-800" href="#">Create User</span></Link>
+                   <Link to='/tableSales'> <span className="text-blue-500 hover:text-blue-800" href="#">Table SalesMan</span></Link>
                 </li>
+                {/* <li className="mr-6">
+                   <Link to='/create'> <span className="text-blue-500 hover:text-blue-800" href="#">Create User</span></Link>
+                </li> */}
                 <li className="mr-6">
                    <Link to='/product'> <span className="text-blue-500 hover:text-blue-800" href="#">Products</span></Link>
                 </li>

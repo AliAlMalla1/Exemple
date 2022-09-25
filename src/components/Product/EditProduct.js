@@ -1,12 +1,13 @@
 import axios from 'axios';
 import React, {  useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
-import { useProductsContext } from '../../hooks/useProductsContext';
+import { useDataContext } from '../../hooks/useDataContext';
+
 
 
 
 const EditProduct = () => {
-  const {dispatch} = useProductsContext()
+  const {dispatch} = useDataContext()
   
 
   const [title,setTitle] = useState();
@@ -30,7 +31,7 @@ const handleSubmit = (e) => {
     setPrice('')
     setUrl('')
     console.log('product updated')
-    dispatch({type: 'UPDATE_PRODUCT' , payload: res.data})
+    dispatch({type: 'UPDATE_DATA' , payload: res.data})
     navigate('/product')
   })
 }
