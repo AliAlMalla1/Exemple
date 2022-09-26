@@ -24,6 +24,9 @@ const handleSubmit = (e) => {
 
   const product = {title,price,url , category , subCategory}
 
+ 
+
+
   axios.post('http://localhost:7000/posts' , product )
   .then((res) => {
     setTitle('')
@@ -32,10 +35,10 @@ const handleSubmit = (e) => {
     setCategory('')
     setSubCategory('')
     setShowModal(false)
-    dispatch({type: 'ADD_DATA' , payload: res.data})
-    
-     
+    dispatch({type: 'ADD_DATA' , payload: res.data})  
+   
   })
+
 }
 
   return (

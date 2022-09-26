@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import CreateProduct from './CreateProduct'
-import { Link } from 'react-router-dom'
 import { useDataContext } from '../../hooks/useDataContext'
+import EditProduct from './EditProduct'
 
 
 
@@ -114,7 +114,8 @@ const Product = () => {
                 </td>
 
                 <td className='flex px-4 py-6'>
-                  <Link to={`/editProduct/${product.id}`} ><button type="button" className=" mx-2 inline-block px-6 py-2.5 mb-8 bg-orange-500 border-2 border-orange-500 duration-500  text-white font-medium text-xs  uppercase rounded hover:bg-white hover:text-orange-500">Edit</button></Link>
+
+                  <EditProduct data={product} />
                   <button type="button" onClick={() => handleCLick(product.id)} className=" inline-block px-6 py-2.5 mb-8 bg-red-800 border-2 border-red-800 duration-500  text-white font-medium text-xs  uppercase rounded hover:bg-white hover:text-red-800">Delete</button>
                 </td>
 
