@@ -15,6 +15,12 @@ const CreateProduct = () => {
   const [category,setCategory] = useState();
   const [subCategory , setSubCategory] = useState()
 
+  let c = 0
+
+
+
+  
+
 
 
 
@@ -26,7 +32,7 @@ const handleSubmit = (e) => {
 
  
 
-
+if(c===0){
   axios.post('http://localhost:7000/posts' , product )
   .then((res) => {
     setTitle('')
@@ -38,6 +44,9 @@ const handleSubmit = (e) => {
     dispatch({type: 'ADD_DATA' , payload: res.data})  
    
   })
+}
+
+
 
 }
 
@@ -55,7 +64,7 @@ const handleSubmit = (e) => {
         <div
           className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
         >
-          <div className="relative w-auto my-6 mx-auto max-w-3xl">
+          <div className="relative  my-6 mx-auto w-1/3">
           
             <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
              
@@ -86,7 +95,11 @@ const handleSubmit = (e) => {
              value={title}
              onChange={(e) => setTitle(e.target.value)} 
           />
+             <span className='text-red-600 mt-3'> {!title? (c=1,"Please Ente the title"  ) : "" || title.length<3? (c+=1 , "the title minimum 3 charchaters"): ""}</span>
+             
      </div>
+ 
+   
 
      <div className="mb-4 ">
        <label className="block text-gray-700 text-base font-bold mb-2" for="price">
@@ -97,6 +110,7 @@ const handleSubmit = (e) => {
              value={price}
              onChange={(e) => setPrice(e.target.value)} 
           />
+           <span className='text-red-600 mt-3'> {!price? (c=1,"Please Ente the price"  ) : "" || price<=0 ? (c+=1 , "min price 1"): ""}</span>
      </div>
      </div>
 
@@ -109,6 +123,7 @@ const handleSubmit = (e) => {
              value={url}
              onChange={(e) => setUrl(e.target.value)} 
           />
+           <span className='text-red-600 mt-3'> {!url? "Please ente thr url" : ""}</span>
      </div>
 
      <div className='grid grid-cols-2 gap-5'>
@@ -121,6 +136,7 @@ const handleSubmit = (e) => {
              value={category}
              onChange={(e) => setCategory(e.target.value)} 
           />
+           <span className='text-red-600 mt-3'> {!category? (c=1,"Please Ente the category"  ) : "" || category.length<4? (c+=1 , "the category minimum 4 charchaters"): ""}</span>
      </div>
 
      <div className="mb-4 ">
@@ -132,6 +148,7 @@ const handleSubmit = (e) => {
              value={subCategory}
              onChange={(e) => setSubCategory(e.target.value)} 
           />
+          <span className='text-red-600 mt-3'> {!subCategory? (c=1,"Please Ente the subCategory"  ) : "" || subCategory.length<4? (c+=1 , "the subCategory minimum 4 charchaters"): ""}</span>
      </div>
      </div>
                 

@@ -54,7 +54,7 @@ const Product = () => {
                     <input type="text" onChange={(e) => setQuery(e.target.value)} className="bg-white border-2 border-blue-600 text-gray-900 text-sm rounded-lg block w-full pl-10 p-2.5  " placeholder="Search By Name ..." required />
                 </div>
             </form>
-            <div className='float-right mr-16'>
+            <div className='float-right mr-20'>
             <div><CreateProduct /></div>
             </div>
       <div>

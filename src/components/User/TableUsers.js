@@ -41,7 +41,7 @@ const TableUsers = () => {
                     <input type="text" onChange={(e) => setQuery(e.target.value)} className="bg-white border-2 border-blue-600 text-gray-900 text-sm rounded-lg block w-full pl-10 p-2.5  " placeholder="Search By Name ..." required />
                 </div>
             </form>
-            <table className="w-11/12 text-sm text-left mx-16 my-2 shadow-xl">
+            <table className="w-11/12 text-sm text-left mx-auto my-2 shadow-xl">
                 <thead className="text-base text-white uppercase bg-blue-500 ">
                     <tr>
                         <th className="py-3 px-6">
